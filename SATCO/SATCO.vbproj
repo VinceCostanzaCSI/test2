@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B4513494-E244-440C-94D6-C42B60E799D1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>SATCO.My.MyApplication</StartupObject>
+    <RootNamespace>SATCO</RootNamespace>
+    <AssemblyName>SATCO</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <ProductName>SATCO Loader</ProductName>
+    <PublisherName>Integrity Controls</PublisherName>
+    <SuiteName>eScale</SuiteName>
+    <ApplicationRevision>27</ApplicationRevision>
+    <ApplicationVersion>3.1.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>SATCO.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>SATCO.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>SATCO.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>SATCO.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>1DE24F4BBCFB1E6E231F09FFA99E4D09D0F335D6</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SATCO_3_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>CTRUSA.ICO</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+    <Reference Include="Spire.Barcode, Version=6.6.0.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.7.7.1\lib\net40\Spire.Barcode.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.DataExport, Version=4.5.0.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.7.7.1\lib\net40\Spire.DataExport.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.DataExport.ResourceMgr, Version=2.1.0.0, Culture=neutral, PublicKeyToken=4bc1500157862925, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.7.7.1\lib\net40\Spire.DataExport.ResourceMgr.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Doc, Version=10.7.10.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.7.7.1\lib\net40\Spire.Doc.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.DocViewer.Forms, Version=7.6.0.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.7.7.1\lib\net40\Spire.DocViewer.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=8.7.2.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.7.7.1\lib\net40\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.PdfViewer.Asp, Version=7.7.1.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.7.7.1\lib\net40\Spire.PdfViewer.Asp.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.PdfViewer.Forms, Version=7.7.1.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.7.7.1\lib\net40\Spire.PdfViewer.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Presentation, Version=7.7.1.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.7.7.1\lib\net40\Spire.Presentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.XLS, Version=12.7.0.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.7.7.1\lib\net40\Spire.XLS.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\clsBrenntag.vb" />
+    <Compile Include="Classes\clsCardReader.vb" />
+    <Compile Include="Classes\clsControl.vb" />
+    <Compile Include="Classes\clsDriver.vb" />
+    <Compile Include="Classes\clsKeyboard.vb" />
+    <Compile Include="Classes\clsProcess.vb" />
+    <Compile Include="Classes\clsSystem.vb" />
+    <Compile Include="Classes\clsTank.vb" />
+    <Compile Include="Classes\clsCommodity.vb" />
+    <Compile Include="Classes\clsConsignee.vb" />
+    <Compile Include="Classes\clsTankAdjustments.vb" />
+    <Compile Include="Classes\clsTransaction.vb" />
+    <Compile Include="Classes\clsWeighIn.vb" />
+    <Compile Include="Classes\clsMosaic.vb" />
+    <Compile Include="Classes\clsCarrier.vb" />
+    <Compile Include="Classes\clsSA.vb" />
+    <Compile Include="frmBNCapacity.Designer.vb">
+      <DependentUpon>frmBNCapacity.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBNCapacity.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBNRail.Designer.vb">
+      <DependentUpon>frmBNRail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBNRail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBNRelease.Designer.vb">
+      <DependentUpon>frmBNRelease.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBNRelease.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCardID.Designer.vb">
+      <DependentUpon>frmCardID.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCardID.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMOCapacity.Designer.vb">
+      <DependentUpon>frmMOCapacity.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMOCapacity.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMORelease.Designer.vb">
+      <DependentUpon>frmMORelease.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMORelease.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCommodity.Designer.vb">
+      <DependentUpon>frmCommodity.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCommodity.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKeyboard.Designer.vb">
+      <DependentUpon>frmKeyboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmKeyboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKeypad.Designer.vb">
+      <DependentUpon>frmKeypad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmKeypad.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMO.Designer.vb">
+      <DependentUpon>frmMO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPassword.Designer.vb">
+      <DependentUpon>frmPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPin.Designer.vb">
+      <DependentUpon>frmPin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProduct.Designer.vb">
+      <DependentUpon>frmProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRelease.Designer.vb">
+      <DependentUpon>frmRelease.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRelease.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSA.Designer.vb">
+      <DependentUpon>frmSA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSACapacity.Designer.vb">
+      <DependentUpon>frmSACapacity.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSACapacity.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSARelease.Designer.vb">
+      <DependentUpon>frmSARelease.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSARelease.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSeal.Designer.vb">
+      <DependentUpon>frmSeal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSeal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetup.Designer.vb">
+      <DependentUpon>frmSetup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSetup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplash.Designer.vb">
+      <DependentUpon>frmSplash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTankSelect.Designer.vb">
+      <DependentUpon>frmTankSelect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTankSelect.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTargetWt.Designer.vb">
+      <DependentUpon>frmTargetWt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTargetWt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTest.designer.vb">
+      <DependentUpon>frmTest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTicketPrint.Designer.vb">
+      <DependentUpon>frmTicketPrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTicketPrint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTrailer.Designer.vb">
+      <DependentUpon>frmTrailer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTrailer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTransactionProcessing.Designer.vb">
+      <DependentUpon>frmTransactionProcessing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTransactionProcessing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVehicle.Designer.vb">
+      <DependentUpon>frmVehicle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmVehicle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWeighIn.designer.vb">
+      <DependentUpon>frmWeighIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmWeighIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\ADU208.vb" />
+    <Compile Include="Modules\Module1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="MyVerticalProgressBar.designer.vb">
+      <DependentUpon>MyVerticalProgressBar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MyVerticalProgressBar.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SQLControl.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmBNCapacity.resx">
+      <DependentUpon>frmBNCapacity.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBNRail.resx">
+      <DependentUpon>frmBNRail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBNRelease.resx">
+      <DependentUpon>frmBNRelease.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCardID.resx">
+      <DependentUpon>frmCardID.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMOCapacity.resx">
+      <DependentUpon>frmMOCapacity.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMORelease.resx">
+      <DependentUpon>frmMORelease.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCommodity.resx">
+      <DependentUpon>frmCommodity.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKeyboard.resx">
+      <DependentUpon>frmKeyboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKeypad.resx">
+      <DependentUpon>frmKeypad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMO.resx">
+      <DependentUpon>frmMO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPassword.resx">
+      <DependentUpon>frmPassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPin.resx">
+      <DependentUpon>frmPin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProduct.resx">
+      <DependentUpon>frmProduct.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRelease.resx">
+      <DependentUpon>frmRelease.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSA.resx">
+      <DependentUpon>frmSA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSACapacity.resx">
+      <DependentUpon>frmSACapacity.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSARelease.resx">
+      <DependentUpon>frmSARelease.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSeal.resx">
+      <DependentUpon>frmSeal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSetup.resx">
+      <DependentUpon>frmSetup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplash.resx">
+      <DependentUpon>frmSplash.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTankSelect.resx">
+      <DependentUpon>frmTankSelect.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTargetWt.resx">
+      <DependentUpon>frmTargetWt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTest.resx">
+      <DependentUpon>frmTest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTicketPrint.resx">
+      <DependentUpon>frmTicketPrint.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTrailer.resx">
+      <DependentUpon>frmTrailer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTransactionProcessing.resx">
+      <DependentUpon>frmTransactionProcessing.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVehicle.resx">
+      <DependentUpon>frmVehicle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWeighIn.resx">
+      <DependentUpon>frmWeighIn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyVerticalProgressBar.resx">
+      <DependentUpon>MyVerticalProgressBar.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="SATCO_3_TemporaryKey.pfx" />
+    <None Include="SATCO_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CTRUSA.ICO" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
