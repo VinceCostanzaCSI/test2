@@ -734,7 +734,7 @@ Partial Class frmSetup
         'txtTicketCountMO
         '
         Me.txtTicketCountMO.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTicketCountMO.Location = New System.Drawing.Point(560, 316)
+        Me.txtTicketCountMO.Location = New System.Drawing.Point(568, 316)
         Me.txtTicketCountMO.MaxLength = 2
         Me.txtTicketCountMO.Name = "txtTicketCountMO"
         Me.txtTicketCountMO.Size = New System.Drawing.Size(43, 35)

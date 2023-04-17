@@ -36,7 +36,7 @@ Public Class frmTransactionProcessing
     Private Sub frmTransactionProcessing_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 
         'AddLogEntry ("frmTransactionProcessing_Load")
-        'CenterForm(Me)
+        CenterForm(Me)
         LoadTimer.Enabled = True
         MyVerticalProgessBar1.Maximum = 100
         chkSADR.Checked = False
@@ -233,10 +233,18 @@ Public Class frmTransactionProcessing
                 Label25.Visible = False
                 Label26.Visible = False
                 Label27.Visible = False
-                Label10.Text = "Waiting for FlowMeter Data"
+                lblNetCapacity.Visible = False
+                txtNetCapacity.Visible = False
+                If SADriver Then
+                    Label10.Text = "Waiting for Acid FlowMeter Data"
+                Else
+                    Label10.Text = "Waiting for Caustic FlowMeter Data"
+                End If
+                FrameWaiting.Visible = False
                 FramePullOnScale.Visible = True
                 FramePullOnScale.Left = 214
                 FramePullOnScale.Top = 14
+                Me.Refresh()
 
                 'Turn on the FlowMeter Reading
                 AddLogEntry("Check for FlowMeter data")
@@ -250,7 +258,8 @@ Public Class frmTransactionProcessing
                 cmdEdit.Enabled = False
                 cmdPrint.Enabled = True
                 FramePlatform.Visible = False
-                'PlatformClear = True
+
+                Label10.Text = "Ready to Print BOL"
                 'LoadStatus(LoadID, True, "Waiting to Print Ticket", txtTank.Text, GrossBox.Text)
                 Do While TransactionComplete = False
                     Application.DoEvents()    'Wait until the driver prints the ticket
@@ -1532,16 +1541,24 @@ Public Class frmTransactionProcessing
 
     Private Sub SetupCom()
         Dim SysOptions = New clsSystem
+        Dim CommInfo As String
         Try
             If SysOptions.ScaleActive = 1 Then
+
+                'Select which port to setup
                 If RailMode Then
                     ScaleCom.ReceivedBytesThreshold = 50
+                    If SADriver Then
+                        CommInfo = SysOptions.ScaleSettings   'Acid Flowmeter
+                    Else
+                        CommInfo = SysOptions.CardSettings    'Caustic Flowmeter
+                    End If
                 Else
-                    ScaleCom.ReceivedBytesThreshold = 1
+                    ScaleCom.ReceivedBytesThreshold = 1       'Truck Loadout Scale
+                    CommInfo = SysOptions.ScaleSettings
                 End If
-                'Monitor AccessCom port for activity
-                Dim Card As String = SysOptions.ScaleSettings
-                Dim parts As String() = Card.Split(","c)
+
+                Dim parts As String() = CommInfo.Split(","c)
 
                 'First determining that port exists
                 AddLogEntry("First determining that port exists")

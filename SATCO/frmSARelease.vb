@@ -55,6 +55,7 @@
                         lblCode.Text = "SA" & SA.Consignee
                         lblTank.Text = SA.Tank
                         lblPO.Text = SA.PO
+                        txtTargetWt.Text = Val(SA.Quantity) * 2000  'Put in pounds
 
                         If lblCode.Text = "SA" & SA.Consignee Then
                             'Get Destination from Consignee (Consignee) table
@@ -181,9 +182,6 @@
             Exit Sub
         End If
         If cmdNext.Text = "Next" Then
-            If RailMode Then
-                txtTargetWt.Text = "210000"
-            End If
             'Get Target Weight
             'AddLogEntry ("frmTargetWt - NEXT button hit")
             SysOptions = New clsSystem
@@ -203,9 +201,6 @@
                     MaxFill = SysOptions.MaxFillWeight
                 End If
                 Carrier = Nothing
-                If RailMode Then
-                    MaxFill = "250000"
-                End If
 
                 If Val(txtTargetWt.Text) > MaxFill Then
                     AddLogEntry("Target Weight entered exceeds maximum")

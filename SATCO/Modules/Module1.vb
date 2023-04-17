@@ -283,7 +283,12 @@ Module Module1
             'Doc = ""
 
             If RailMode Then
-                doc.LoadFromFile(SharePath & "Q183 SA BOL Rail.docx")
+                If SADriver = True Then
+                    doc.LoadFromFile(SharePath & "Q183 SA BOL Rail.docx")
+                Else
+                    doc.LoadFromFile(SharePath & "Q184 BN BOL Rail.docx")
+                End If
+
             Else
                 If Mid(CommID, 1, 2) = "SA" Then
                     If Consignee.NSF = True Then
@@ -317,9 +322,9 @@ Module Module1
 
             If RailMode Then
                 navigator.MoveToBookmark("Car1")
-                navigator.InsertText(Transaction.VehicleID)
-                navigator.MoveToBookmark("Prefix1")
                 navigator.InsertText(Transaction.TrailerID)
+                navigator.MoveToBookmark("Prefix1")
+                navigator.InsertText(Transaction.VehicleID)
                 navigator.MoveToBookmark("Net1")
                 Net = Transaction.Gross - Transaction.Tare
                 Tonnage = Net / 2000

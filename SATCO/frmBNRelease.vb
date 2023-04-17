@@ -153,6 +153,13 @@
                             txtRelease.Visible = False
                             lblMsg.Text = "Press NEXT to Continue"
                             cmdNext.Focus()
+                        ElseIf RailMode And Val(Brenntag.MaxLoad) > 0 And Val(Brenntag.MaxLoad) < 230000 Then
+                            txtTargetWt.Text = Brenntag.MaxLoad
+                            lblOrder.Text = "Brenntag Net Load:"
+                            txtTargetWt.Visible = True
+                            txtRelease.Visible = False
+                            lblMsg.Text = "Press NEXT to Continue"
+                            cmdNext.Focus()
                         Else
                             lblOrder.Text = "Net Load (lbs):"
                             txtTargetWt.Visible = True
@@ -174,11 +181,9 @@
             Process = New clsProcess
             If Len(txtTargetWt.Text) > 0 Then
                 AddLogEntry("Validating Net Weight entered")
-                If RailMode Then
-                    BrenntagMaxLoad = "220000"
-                Else
-                    BrenntagMaxLoad = SysOptions.MaxFillWeight
-                End If
+
+                BrenntagMaxLoad = SysOptions.MaxFillWeight
+
 
                 If Val(txtTargetWt.Text) > Val(BrenntagMaxLoad) - 20000 Then
                     AddLogEntry("Target Weight entered exceeds maximum")

@@ -3,9 +3,9 @@
     Private Sub frmVehicle_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         CenterForm(Me)
         If RailMode Then
-            lblMsg.Text = "Enter Railcar Number"
-            Label1.Text = "Car Number:"
-            txtVehicleID.Tag = "Car Number"
+            lblMsg.Text = "Enter Railcar Prefix"
+            Label1.Text = "Railcar Prefix:"
+            txtVehicleID.Tag = "Railcar Prefix"
         Else
             lblMsg.Text = "Enter Vehicle ID"
             Label1.Text = "Vehicle ID:"

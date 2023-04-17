@@ -522,7 +522,7 @@ Partial Class frmTransactionProcessing
         Me.txtDisplayTarget.Enabled = False
         Me.txtDisplayTarget.Location = New System.Drawing.Point(134, 20)
         Me.txtDisplayTarget.Name = "txtDisplayTarget"
-        Me.txtDisplayTarget.Size = New System.Drawing.Size(68, 26)
+        Me.txtDisplayTarget.Size = New System.Drawing.Size(74, 26)
         Me.txtDisplayTarget.TabIndex = 11
         Me.txtDisplayTarget.Tag = "Target Weight"
         '
@@ -1031,9 +1031,9 @@ Partial Class frmTransactionProcessing
         '
         Me.FramePullOnScale.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.FramePullOnScale.Controls.Add(Me.Label10)
-        Me.FramePullOnScale.Location = New System.Drawing.Point(1133, 425)
+        Me.FramePullOnScale.Location = New System.Drawing.Point(1133, 422)
         Me.FramePullOnScale.Name = "FramePullOnScale"
-        Me.FramePullOnScale.Size = New System.Drawing.Size(563, 71)
+        Me.FramePullOnScale.Size = New System.Drawing.Size(597, 71)
         Me.FramePullOnScale.TabIndex = 43
         Me.FramePullOnScale.TabStop = False
         '
@@ -1042,11 +1042,12 @@ Partial Class frmTransactionProcessing
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.Red
-        Me.Label10.Location = New System.Drawing.Point(66, 22)
+        Me.Label10.Location = New System.Drawing.Point(29, 19)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(442, 37)
+        Me.Label10.Size = New System.Drawing.Size(502, 37)
         Me.Label10.TabIndex = 0
-        Me.Label10.Text = "PLEASE PULL ON SCALE !"
+        Me.Label10.Text = "      PLEASE PULL ON SCALE !"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'RedLight
         '
@@ -1379,10 +1380,10 @@ Partial Class frmTransactionProcessing
         Me.Controls.Add(Me.cmdWD)
         Me.Controls.Add(Me.txtWD)
         Me.Controls.Add(Me.FrameTareWeight)
+        Me.Controls.Add(Me.FramePullOnScale)
         Me.Controls.Add(Me.Scale1Box)
         Me.Controls.Add(Me.FramePaused)
         Me.Controls.Add(Me.MyVerticalProgessBar1)
-        Me.Controls.Add(Me.FramePullOnScale)
         Me.Controls.Add(Me.FrameWaiting)
         Me.Controls.Add(Me.FrameFilling)
         Me.Controls.Add(Me.FramePlatform)

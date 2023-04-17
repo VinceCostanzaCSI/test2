@@ -181,7 +181,7 @@ Public Class clsSystem
         End Set
     End Property
 
-    Property TLSN() As String
+    Property TLSN() As String  'Truck Loading ADU Serial Number
         Get
             Section = "ADU"
             TLSN = GetSetting(appName, Section, "TLSN", "")
@@ -192,7 +192,7 @@ Public Class clsSystem
         End Set
     End Property
 
-    Property TSSN() As String
+    Property TSSN() As String  'Tank Select ADU Serial Number
         Get
             Section = "ADU"
             TSSN = GetSetting(appName, Section, "TSSN", "")
@@ -941,6 +941,84 @@ Public Class clsSystem
         Set(value As String)
             sH2OFlow = value
         End Set
+    End Property
+
+    Public ReadOnly Property CardSettings() As String
+        Get
+            Dim SystemOptions As clsSystem
+
+            SystemOptions = New clsSystem
+
+            CardSettings = ""
+
+            Select Case SystemOptions.CardReaderPort
+                Case 0
+                    CardSettings = "COM1"
+                Case 1
+                    CardSettings = "COM2"
+                Case 2
+                    CardSettings = "COM3"
+                Case 3
+                    CardSettings = "COM4"
+                Case 4
+                    CardSettings = "COM5"
+                Case 5
+                    CardSettings = "COM6"
+                Case Else
+                    CardSettings = "COM1"
+            End Select
+
+            Select Case SystemOptions.CardReaderBaud
+                Case 1
+                    CardSettings = CardSettings & ",2400"
+                Case 2
+                    CardSettings = CardSettings & ",4800"
+                Case 3
+                    CardSettings = CardSettings & ",9600"
+                Case 4
+                    CardSettings = CardSettings & ",14400"
+                Case 5
+                    CardSettings = CardSettings & ",19200"
+                Case 6
+                    CardSettings = CardSettings & ",38400"
+                Case Else
+                    CardSettings = CardSettings & ",9600"
+            End Select
+
+            Select Case SystemOptions.CardReaderParity
+                Case 0
+                    CardSettings = CardSettings & ",N"
+                Case 1
+                    CardSettings = CardSettings & ",E"
+                Case 2
+                    CardSettings = CardSettings & ",O"
+                Case 3
+                    CardSettings = CardSettings & ",S"
+                Case Else
+                    CardSettings = CardSettings & ",M"
+            End Select
+
+            Select Case SystemOptions.CardReaderDataBits
+                Case 0
+                    CardSettings = CardSettings & ",7"
+                Case 1
+                    CardSettings = CardSettings & ",8"
+                Case Else
+                    CardSettings = CardSettings & ",8"
+            End Select
+
+            Select Case SystemOptions.CardReaderStopBits
+                Case 0
+                    CardSettings = CardSettings & ",1"
+                Case 1
+                    CardSettings = CardSettings & ",2"
+                Case Else
+                    CardSettings = CardSettings & ",1"
+            End Select
+
+            SystemOptions = Nothing
+        End Get
+
     End Property
 
     Public Property CardReaderPort() As Integer
