@@ -216,11 +216,11 @@ Public Class frmSetup
         SysOptions = New clsSystem
         Try
             ScaleNumber = Val(txtScaleNumber.Text)
-            If ScaleNumber <> 1 And ScaleNumber <> 2 Then
-                'MsgBox("Invalid Scale Number.  Scale device number must be 1 or 2 !", vbOKOnly, "Device Number Error")
+            If ScaleNumber = 0 Then
                 MsgBox("Scale Number 0. This Kiosk will be set to Rail Mode", vbOKOnly, "Device Number Warning")
+            End If
 
-                SysOptions.ScaleNumber = ScaleNumber
+            SysOptions.ScaleNumber = ScaleNumber
                 SysOptions.ScaleActive = Active(0)
                 SysOptions.ScaleIP = txtIPAddress.Text
                 If SysOptions.ScaleActive = 1 Then
@@ -427,7 +427,6 @@ Public Class frmSetup
                     AddLogEntry("BNUpdateRecord: " & ex.Message)
                 End Try
 
-            End If
 
             MsgBox("Exit program to allow changes to take place")
 

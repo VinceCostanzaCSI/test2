@@ -37,6 +37,8 @@ Public Class frmCardID
                 cboCardID.Visible = True
                 txtCardID.Visible = False
             Else
+                cboCardID.Visible = False
+                txtCardID.Visible = True
                 'Release any Tank Select request
                 aduhandle = OpenAduDeviceBySerialNumber(TankSelectSN, 1)
                 Control.ResetTankRequest()

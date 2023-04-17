@@ -5,9 +5,11 @@
         If RailMode Then
             lblMsg.Text = "Enter Railcar Number"
             Label1.Text = "Car Number:"
+            txtVehicleID.Tag = "Car Number"
         Else
             lblMsg.Text = "Enter Vehicle ID"
             Label1.Text = "Vehicle ID:"
+            txtVehicleID.Tag = "Vehicle ID"
         End If
     End Sub
 

@@ -49,9 +49,11 @@
         If RailMode Then
             lblMsg.Text = "Enter Railcar Prefix"
             Label1.Text = "Prefix:"
+            txtTrailerID.Tag = "Railcar Prefix"
         Else
             lblMsg.Text = "Enter Trailer ID"
             Label1.Text = "Trailer ID:"
+            txtTrailerID.Tag = "Trailer ID"
         End If
     End Sub
 

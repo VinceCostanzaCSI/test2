@@ -41,6 +41,12 @@
         Dim Process As clsProcess
 
         Try
+            If RailMode Then
+                If txtSeal1.Text = "" Or txtSeal2.Text = "" Or txtSeal3.Text = "" Or txtSeal4.Text = "" Then
+                    MsgBox("Please enter all Seal values")
+                    Exit Sub
+                End If
+            End If
             If txtSeal1.Text = "" Or txtSeal2.Text = "" Then
                 MsgBox("Please enter Seal 1 and Seal 2 values")
                 Exit Sub

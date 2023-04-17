@@ -77,8 +77,6 @@ Public Class frmMain
                     MsgBox(ex.Message)
                 End Try
 
-
-
                 ' ----- Signal ADU to turn traffic light RED -----
                 Control.SetTrafficLightRed()
                 AddLogEntry("Setting traffic signal to RED")
