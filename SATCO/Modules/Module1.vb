@@ -5,7 +5,7 @@ Imports Spire.Doc.Documents
 Imports Spire.Xls
 Module Module1
 
-    Public Version As String = "3.1.0.26"
+    Public Version As String = "3.1.0.27"
     Public CtrlPassword As String
     Public OperatorName As String
     Public PrinterConnected As Integer
@@ -286,7 +286,7 @@ Module Module1
                 If SADriver = True Then
                     doc.LoadFromFile(SharePath & "Q183 SA BOL Rail.docx")
                 Else
-                    doc.LoadFromFile(SharePath & "Q184 BN BOL Rail.docx")
+                    doc.LoadFromFile(SharePath & "Q184 BN BOL Rail.doc")
                 End If
 
             Else

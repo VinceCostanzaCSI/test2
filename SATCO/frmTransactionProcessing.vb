@@ -250,45 +250,50 @@ Public Class frmTransactionProcessing
                 AddLogEntry("Check for FlowMeter data")
                 Scale1Check.Enabled = True
                 Delay(500)
-                Do While ScaleWeight1 < 100000
-                    'Wait for valid Flowmeter reading
+                Do While ScaleWeight1 < SysOptions.MinFillWeight And cmdCancelFlag = False
+                    Application.DoEvents()   'Wait for valid Flowmeter reading
                 Loop
-                cmdCancel.Enabled = False
-                cmdContinue.Enabled = False
-                cmdEdit.Enabled = False
-                cmdPrint.Enabled = True
-                FramePlatform.Visible = False
+                If cmdCancelFlag = False Then
 
-                Label10.Text = "Ready to Print BOL"
-                'LoadStatus(LoadID, True, "Waiting to Print Ticket", txtTank.Text, GrossBox.Text)
-                Do While TransactionComplete = False
-                    Application.DoEvents()    'Wait until the driver prints the ticket
-                Loop
-                AddLogEntry("TransactionComplete equal to true")
-                'cmdPrint.Enabled = False
 
-                Delay(2000)
-                AddLogEntry("Have Truck Exit Scale")
-                'LoadStatus(LoadID, False, "Waiting for Truck to Exit Scale", txtTank.Text, GrossBox.Text)
-                'HaveTruckExitScale()
-                TransactionComplete = False
+                    cmdCancel.Enabled = False
+                    cmdContinue.Enabled = False
+                    cmdEdit.Enabled = False
+                    cmdPrint.Enabled = True
+                    FramePlatform.Visible = False
 
-                'Stop Monitor Inputs
-                InputTimer.Enabled = False
+                    Label10.Text = "Ready to Print BOL"
+                    'LoadStatus(LoadID, True, "Waiting to Print Ticket", txtTank.Text, GrossBox.Text)
+                    Do While TransactionComplete = False
+                        Application.DoEvents()    'Wait until the driver prints the ticket
+                    Loop
+                    AddLogEntry("TransactionComplete equal to true")
+                    'cmdPrint.Enabled = False
+
+                    Delay(2000)
+                    AddLogEntry("Have Truck Exit Scale")
+                    'LoadStatus(LoadID, False, "Waiting for Truck to Exit Scale", txtTank.Text, GrossBox.Text)
+
+                    TransactionComplete = False
+
+                    'Stop Monitor Inputs
+                    InputTimer.Enabled = False
+
+                End If
 
                 ' ----- END THE FILL CYCLE -----
 
                 Process = Nothing
-                LoadStatus(LoadID, False, "Filling Cycle Complete", txtTank.Text, GrossBox.Text)
+                    LoadStatus(LoadID, False, "Filling Cycle Complete", txtTank.Text, GrossBox.Text)
 
-                AddLogEntry("Unloading frmTransactionProcessing")
-                Control.CameraOff()
-                If ScaleCom.IsOpen Then
-                    AddLogEntry("Closing Scale Serial port ")
-                    ScaleCom.Close()
-                End If
+                    AddLogEntry("Unloading frmTransactionProcessing")
+                    Control.CameraOff()
+                    If ScaleCom.IsOpen Then
+                        AddLogEntry("Closing Scale Serial port ")
+                        ScaleCom.Close()
+                    End If
 
-                Me.Close()
+                    Me.Close()
                 AddLogEntry("frmTransactionProcessing - Loading frmCardId")
                 frmCardID.MdiParent = frmMain
                 frmCardID.Show()

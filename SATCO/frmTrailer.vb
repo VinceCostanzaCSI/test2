@@ -3,17 +3,27 @@
     Private Sub cmdBack_Click(sender As System.Object, e As System.EventArgs) Handles cmdBack.Click
         'AddLogEntry ("frmTrailer - BACK button hit")
         Me.Close()
-
-        If MosaicDriver = True Then
-            frmMOCapacity.MdiParent = frmMain
-            frmMOCapacity.Show()
-        ElseIf BrenntagDriver = True Then
-            frmBNRelease.MdiParent = frmMain
-            frmBNRelease.Show()
+        If RailMode Then
+            If BrenntagDriver = True Then
+                frmBNRelease.MdiParent = frmMain
+                frmBNRelease.Show()
+            Else
+                frmSARelease.MdiParent = frmMain
+                frmSARelease.Show()
+            End If
         Else
-            frmSACapacity.MdiParent = frmMain
-            frmSACapacity.Show()
+            If MosaicDriver = True Then
+                frmMOCapacity.MdiParent = frmMain
+                frmMOCapacity.Show()
+            ElseIf BrenntagDriver = True Then
+                frmBNRelease.MdiParent = frmMain
+                frmBNRelease.Show()
+            Else
+                frmSACapacity.MdiParent = frmMain
+                frmSACapacity.Show()
+            End If
         End If
+
 
     End Sub
 

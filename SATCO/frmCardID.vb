@@ -36,6 +36,7 @@ Public Class frmCardID
                 ComboFill()
                 cboCardID.Visible = True
                 txtCardID.Visible = False
+                lblCardStatus.Visible = False
             Else
                 cboCardID.Visible = False
                 txtCardID.Visible = True

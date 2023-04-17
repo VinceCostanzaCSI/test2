@@ -32,11 +32,11 @@ Partial Class frmProduct
         '
         Me.lblMsg.AutoSize = True
         Me.lblMsg.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMsg.Location = New System.Drawing.Point(169, 9)
+        Me.lblMsg.Location = New System.Drawing.Point(189, 9)
         Me.lblMsg.Name = "lblMsg"
-        Me.lblMsg.Size = New System.Drawing.Size(273, 37)
+        Me.lblMsg.Size = New System.Drawing.Size(224, 37)
         Me.lblMsg.TabIndex = 10
-        Me.lblMsg.Text = "Enter PIN number"
+        Me.lblMsg.Text = "Select Product"
         Me.lblMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'cmdSA
