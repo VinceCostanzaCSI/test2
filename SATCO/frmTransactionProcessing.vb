@@ -85,7 +85,13 @@ Public Class frmTransactionProcessing
             'Read from database for DriverInfo, MosaicCOA and BrenntagCOA
             SysOptions.GetCurrentRecord()
 
-            If RailMode = False Then
+            If RailMode Then
+                If SADriver Then
+                    ActiveScale = 0
+                Else
+                    ActiveScale = 1
+                End If
+            Else
                 If SysOptions.ScaleNumber <> 1 And SysOptions.ScaleNumber <> 2 Then
                     AddLogEntry("Scale has not been set")
                     MsgBox("The Scale ID has not been set !", vbOKOnly, "Scale Error")
@@ -113,9 +119,9 @@ Public Class frmTransactionProcessing
                 GreenLight.Visible = False
                 Control.SetTrafficLightRed()
 
-            End If
+                H2OFlow = Val(SysOptions.H2OFlow)
 
-            H2OFlow = Val(SysOptions.H2OFlow)
+            End If
 
             SetupCom()
 
@@ -1768,4 +1774,7 @@ Public Class frmTransactionProcessing
         End Try
     End Sub
 
+    Private Sub txtGross_TextChanged(sender As Object, e As EventArgs) Handles txtGross.TextChanged
+
+    End Sub
 End Class

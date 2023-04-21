@@ -310,7 +310,6 @@ Module Module1
                 End If
             End If
 
-
             'Read from database for DriverInfo, MosaicCOA and BrenntagCOA
             SysOptions.GetCurrentRecord()
 

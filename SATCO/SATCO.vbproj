@@ -30,7 +30,7 @@
     <ProductName>SATCO Loader</ProductName>
     <PublisherName>Integrity Controls</PublisherName>
     <SuiteName>eScale</SuiteName>
-    <ApplicationRevision>27</ApplicationRevision>
+    <ApplicationRevision>28</ApplicationRevision>
     <ApplicationVersion>3.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
