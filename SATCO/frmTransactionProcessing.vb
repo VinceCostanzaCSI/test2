@@ -1,6 +1,7 @@
 ﻿Imports System.Text
 Imports System.IO
 Imports System.IO.Ports
+Imports System.Text.RegularExpressions
 
 Public Class frmTransactionProcessing
     Private SQL As New SQLControl
@@ -290,16 +291,15 @@ Public Class frmTransactionProcessing
                 ' ----- END THE FILL CYCLE -----
 
                 Process = Nothing
-                    LoadStatus(LoadID, False, "Filling Cycle Complete", txtTank.Text, GrossBox.Text)
+                LoadStatus(LoadID, False, "Filling Cycle Complete", txtTank.Text, GrossBox.Text)
+                AddLogEntry("Unloading frmTransactionProcessing")
+                Control.CameraOff()
+                If ScaleCom.IsOpen Then
+                    AddLogEntry("Closing Scale Serial port ")
+                    ScaleCom.Close()
+                End If
 
-                    AddLogEntry("Unloading frmTransactionProcessing")
-                    Control.CameraOff()
-                    If ScaleCom.IsOpen Then
-                        AddLogEntry("Closing Scale Serial port ")
-                        ScaleCom.Close()
-                    End If
-
-                    Me.Close()
+                Me.Close()
                 AddLogEntry("frmTransactionProcessing - Loading frmCardId")
                 frmCardID.MdiParent = frmMain
                 frmCardID.Show()
@@ -1634,31 +1634,39 @@ Public Class frmTransactionProcessing
                 Dim endnum As Integer
                 rcvd1 = ScaleCom.ReadExisting
                 Dim msglength As String = Len(rcvd1)
-                If InStr(rcvd1, "Total:") <> 0 Then 'And InStr(rcvd1, "lb") <> 0 Then
-                    startnum = InStr(rcvd1, "Total:")
-                    endnum = InStr(rcvd1, "lb")
-                    ScaleWeight1 = Val(Mid(rcvd1, startnum + 15, 6))
+
+                If SADriver Then ' Acid method
+                    If InStr(rcvd1, "Total:") <> 0 Then
+                        startnum = InStr(rcvd1, "Total:")
+                        endnum = InStr(rcvd1, "lb")
+                        ScaleWeight1 = Val(Mid(rcvd1, startnum + 15, 6))
+                    End If
+                Else ' Caustic method
+                    Dim match As Match = Regex.Match(rcvd1, "Actual:\s+(\d+)")
+                    If match.Success Then
+                        ScaleWeight1 = Val(match.Groups(1).Value)
+                    End If
                 End If
             Else
-                Dim w1 As String = ""
-                rcvd1 = ScaleCom.ReadExisting
-                For i = 1 To Len(rcvd1)
-                        w1 = Mid(rcvd1, i, 1)
-                        If w1 = vbCr And Flag1 = True Then   'end of weight string vbCr (or L if using simulator)
-                            Flag1 = False
-                            If InStr(Weight1, "?") = 0 Then
-                                'Scale1Box.Text = Val(Weight1)
-                                ScaleWeight1 = Val(Mid(Weight1, 4, 6))  '4, 6  (or 1,6 if using simulator)
-                            End If
-                            Weight1 = ""
-                        End If
-                        If Flag1 = True Then   'start adding up weight
-                            Weight1 = Weight1 + w1
-                        End If
-                        If w1 = Chr(2) Then   'Get STX
-                            Flag1 = True
-                        End If
-                    Next i
+            Dim w1 As String = ""
+            rcvd1 = ScaleCom.ReadExisting
+            For i = 1 To Len(rcvd1)
+                w1 = Mid(rcvd1, i, 1)
+                If w1 = vbCr And Flag1 = True Then   'end of weight string vbCr (or L if using simulator)
+                    Flag1 = False
+                    If InStr(Weight1, "?") = 0 Then
+                        'Scale1Box.Text = Val(Weight1)
+                        ScaleWeight1 = Val(Mid(Weight1, 4, 6))  '4, 6  (or 1,6 if using simulator)
+                    End If
+                    Weight1 = ""
+                End If
+                If Flag1 = True Then   'start adding up weight
+                    Weight1 = Weight1 + w1
+                End If
+                If w1 = Chr(2) Then   'Get STX
+                    Flag1 = True
+                End If
+            Next i
             End If
 
             'Reset watchdog timer if set
