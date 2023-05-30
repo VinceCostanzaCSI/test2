@@ -11,7 +11,7 @@ Public Class frmMain
     'Const TOOLBAR_MAIN = 0
     'Const TOOLBAR_TRANSACTION = 1
     'Const TOOLBAR_FILEMAINT = 2
-    'Const TOOLBAR_REPORTS = 3
+    'Const TOOLBAR_REPORTS = 3 
 
     Dim SysOptions As clsSystem
     Dim GateCardReader As clsCardReader
